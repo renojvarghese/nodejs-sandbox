@@ -15,7 +15,8 @@
   "bugs": {
     "url": "https://github.com/renojvarghese/sql-lesson/issues"
   },
-
   "homepage": "https://github.com/renojvarghese/sql-lesson#readme",
-
+  "devDependencies": {
+    "mysql": "^2.15.0"
+  }
 }
