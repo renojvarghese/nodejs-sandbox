@@ -7,7 +7,7 @@ const con = mysql.createConnection({
     user: "",
     password: ""
 });
-
+const querystring = require("querystring");
 con.connect((err) => {
     if (err) console.log(err);
     else {
@@ -36,9 +36,5 @@ con.connect((err) => {
 })
 
 app.get("/", (req, res) => {
-
+    querystring.parse(req.url);
 });
-
-app.post("/" (req, res) => {
-    
-})

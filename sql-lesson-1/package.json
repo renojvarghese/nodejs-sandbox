@@ -19,5 +19,8 @@
   "devDependencies": {
     "express": "^4.16.3",
     "mysql": "^2.15.0"
+  },
+  "dependencies": {
+    "querystring": "^0.2.0"
   }
 }
