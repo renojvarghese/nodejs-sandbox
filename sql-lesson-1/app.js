@@ -49,11 +49,11 @@ app.get("/", (req, res) => {
 
 app.get("/add", (req, res) => {
     let query = querystring.parse(req.url);
-    console.log(query);
+
     let name = query.name;
     let text = query.text;
     let line = "INSERT INTO test (name, text) VALUES ('" + name + "', '" + text + "');";
-    console.log(line);
+
     con.query(line, (err, body) => {
         if (err) {
             throw(err);
