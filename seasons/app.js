@@ -15,7 +15,7 @@ http.createServer( (req, res) => {
         else {
             res.writeHeader(200, {"Content-Type": "text/html"});
             res.write(file);
-            res.end()
+            res.end();
         }
     })
 

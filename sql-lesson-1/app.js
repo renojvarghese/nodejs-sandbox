@@ -4,8 +4,9 @@ const express = require('express');
 const app = express();
 const con = mysql.createConnection({
     host: "localhost",
-    user: "",
-    password: ""
+    user: "root",
+    password: "Thundaga32",
+    database: "text"
 });
 const querystring = require("querystring");
 con.connect((err) => {
@@ -36,5 +37,31 @@ con.connect((err) => {
 })
 
 app.get("/", (req, res) => {
-    querystring.parse(req.url);
+    con.query("SELECT * FROM test", (err, body) => {
+        if (err) {
+            throw(err);
+        }
+        res.send(body);
+    });
+
+
 });
+
+app.get("/add", (req, res) => {
+    let query = querystring.parse(req.url);
+    console.log(query);
+    let name = query.name;
+    let text = query.text;
+    let line = "INSERT INTO test (name, text) VALUES ('" + name + "', '" + text + "');";
+    console.log(line);
+    con.query(line, (err, body) => {
+        if (err) {
+            throw(err);
+        }
+        res.send(body);
+    })
+
+
+});
+
+app.listen(8888);
